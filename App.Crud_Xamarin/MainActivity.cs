@@ -12,7 +12,7 @@ namespace App.Crud_Xamarin
     public class MainActivity : Activity
     {
         ListView lvDados;
-        List<Aluno> listaAlunos = new List<Aluno>();
+        List<Funcionario> listaFuncionarios = new List<Funcionario>();
         DataBase db;
 
         protected override void OnCreate(Bundle bundle)
@@ -26,8 +26,9 @@ namespace App.Crud_Xamarin
             lvDados = FindViewById<ListView>(Resource.Id.lvDados);
 
             var txtNome = FindViewById<EditText>(Resource.Id.txtNome);
-            var txtIdade = FindViewById<EditText>(Resource.Id.txtIdade);
+            var txtCpf = FindViewById<EditText>(Resource.Id.txtCpf);
             var txtEmail = FindViewById<EditText>(Resource.Id.txtEmail);
+            var txtEndereco = FindViewById<EditText>(Resource.Id.txtEndereco);
 
             var btnIncluir = FindViewById<Button>(Resource.Id.btnIncluir);
             var btnEditar = FindViewById<Button>(Resource.Id.btnEditar);
@@ -39,41 +40,45 @@ namespace App.Crud_Xamarin
             //botão Incluir
             btnIncluir.Click += delegate
             {
-                Aluno aluno = new Aluno()
+                Funcionario funcionario = new Funcionario()
                 {
                     Nome = txtNome.Text,
-                    Idade = int.Parse(txtIdade.Text),
-                    Email = txtEmail.Text
+                    Cpf = txtCpf.Text,
+                    Email = txtEmail.Text,
+                    Endereco = txtEndereco.Text,
+
                 };
-                db.InserirAluno(aluno);
+                db.InserirFuncionario(funcionario);
                 CarregarDados();
             };
 
             //botão editar
             btnEditar.Click += delegate
             {
-                Aluno aluno = new Aluno()
+                Funcionario funcionario = new Funcionario()
                 {
                     Id = int.Parse(txtNome.Tag.ToString()),
                     Nome = txtNome.Text,
-                    Idade = int.Parse(txtIdade.Text),
-                    Email = txtEmail.Text
+                    Cpf = txtCpf.Text,
+                    Email = txtEmail.Text,
+                    Endereco = txtEndereco.Text,
                 };
-                db.AtualizarAluno(aluno);
+                db.AtualizarFuncionario(funcionario);
                 CarregarDados();
             };
 
             //botão deletar
             btnDeletar.Click += delegate
             {
-                Aluno aluno = new Aluno()
+                Funcionario funcionario = new Funcionario()
                 {
                     Id = int.Parse(txtNome.Tag.ToString()),
                     Nome = txtNome.Text,
-                    Idade = int.Parse(txtIdade.Text),
-                    Email = txtEmail.Text
+                    Cpf = txtCpf.Text,
+                    Email = txtEmail.Text,
+                    Endereco = txtEndereco.Text,
                 };
-                db.DeletarAluno(aluno);
+                db.DeletarFuncionario(funcionario);
                 CarregarDados();
             };
 
@@ -90,13 +95,15 @@ namespace App.Crud_Xamarin
 
                 //vinculando dados do listview 
                 var lvtxtNome = e.View.FindViewById<TextView>(Resource.Id.txtvNome);
-                var lvtxtIdade = e.View.FindViewById<TextView>(Resource.Id.txtvIdade);
+                var lvtxtCpf = e.View.FindViewById<TextView>(Resource.Id.txtvCpf);
                 var lvtxtEmail = e.View.FindViewById<TextView>(Resource.Id.txtvEmail);
+                var lvtxtEndereco = e.View.FindViewById<TextView>(Resource.Id.txtvEndereco);
 
                 txtNome.Text = lvtxtNome.Text;
                 txtNome.Tag = e.Id;
-                txtIdade.Text = lvtxtIdade.Text;
+                txtCpf.Text = lvtxtCpf.Text;
                 txtEmail.Text = lvtxtEmail.Text;
+                txtEndereco.Text = lvtxtEndereco.Text;
 
             };
 
@@ -110,8 +117,8 @@ namespace App.Crud_Xamarin
 
         private void CarregarDados()
         {
-            listaAlunos = db.GetAlunos();
-            var adapter = new ListViewAdapter(this, listaAlunos);
+            listaFuncionarios = db.GetFuncionarios();
+            var adapter = new ListViewAdapter(this, listaFuncionarios);
             lvDados.Adapter = adapter;
         }
     }

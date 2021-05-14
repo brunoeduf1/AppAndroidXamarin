@@ -14,9 +14,9 @@ namespace App.Crud_Xamarin.Resources.DataBaseHelper
         {
             try
             {
-                using (var conexao = new SQLiteConnection(System.IO.Path.Combine(pasta, "Alunos.db")))
+                using (var conexao = new SQLiteConnection(System.IO.Path.Combine(pasta, "Funcionarios.db")))
                 {
-                    conexao.CreateTable<Aluno>();
+                    conexao.CreateTable<Funcionario>();
                     return true;
                 }
             }
@@ -27,13 +27,13 @@ namespace App.Crud_Xamarin.Resources.DataBaseHelper
             }
         }
 
-        public bool InserirAluno(Aluno aluno)
+        public bool InserirFuncionario(Funcionario funcionario)
         {
             try
             {
-                using (var conexao = new SQLiteConnection(System.IO.Path.Combine(pasta, "Alunos.db")))
+                using (var conexao = new SQLiteConnection(System.IO.Path.Combine(pasta, "Funcionarios.db")))
                 {
-                    conexao.Insert(aluno);
+                    conexao.Insert(funcionario);
                     return true;
                 }
             }
@@ -44,13 +44,13 @@ namespace App.Crud_Xamarin.Resources.DataBaseHelper
             }
         }
 
-        public List<Aluno> GetAlunos()
+        public List<Funcionario> GetFuncionarios()
         {
             try
             {
-                using (var conexao = new SQLiteConnection(System.IO.Path.Combine(pasta, "Alunos.db")))
+                using (var conexao = new SQLiteConnection(System.IO.Path.Combine(pasta, "Funcionarios.db")))
                 {
-                    return conexao.Table<Aluno>().ToList();
+                    return conexao.Table<Funcionario>().ToList();
                 }
             }
             catch (SQLiteException ex)
@@ -60,14 +60,14 @@ namespace App.Crud_Xamarin.Resources.DataBaseHelper
             }
         }
 
-        public bool AtualizarAluno(Aluno aluno)
+        public bool AtualizarFuncionario(Funcionario funcionario)
         {
             try
             {
-                using (var conexao = new SQLiteConnection(System.IO.Path.Combine(pasta, "Alunos.db")))
+                using (var conexao = new SQLiteConnection(System.IO.Path.Combine(pasta, "Funcionarios.db")))
                 {
-                    conexao.Query<Aluno>("UPDATE Aluno set Nome=?,Idade=?, Email=? Where Id=?", aluno.Nome, aluno.Idade, aluno.Email, aluno.Id);
-                    //conexao.Update(aluno);
+                    conexao.Query<Funcionario>("UPDATE Aluno set Nome=?, Cpf=?, Email=?, Endereco=? Where Id=?", funcionario.Nome, funcionario.Cpf, funcionario.Email, funcionario.Endereco, funcionario.Id);
+                    //conexao.Update(funcionario);
                     return true;
                 }
             }
@@ -78,13 +78,13 @@ namespace App.Crud_Xamarin.Resources.DataBaseHelper
             }
         }
 
-        public bool DeletarAluno(Aluno aluno)
+        public bool DeletarFuncionario(Funcionario funcionario)
         {
             try
             {
-                using (var conexao = new SQLiteConnection(System.IO.Path.Combine(pasta, "Alunos.db")))
+                using (var conexao = new SQLiteConnection(System.IO.Path.Combine(pasta, "Funcionarios.db")))
                 {
-                    conexao.Delete(aluno);
+                    conexao.Delete(funcionario);
                     return true;
                 }
             }
@@ -95,14 +95,14 @@ namespace App.Crud_Xamarin.Resources.DataBaseHelper
             }
         }
 
-        public bool GetAluno(int Id)
+        public bool GetFuncionario(int Id)
         {
             try
             {
-                using (var conexao = new SQLiteConnection(System.IO.Path.Combine(pasta, "Alunos.db")))
+                using (var conexao = new SQLiteConnection(System.IO.Path.Combine(pasta, "Funcionarios.db")))
                 {
-                    conexao.Query<Aluno>("SELECT * FROM Aluno Where Id=?", Id);
-                    //conexao.Update(aluno);
+                    conexao.Query<Funcionario>("SELECT * FROM Funcionario Where Id=?", Id);
+                    //conexao.Update(funcionario);
                     return true;
                 }
             }

@@ -80,7 +80,7 @@
     <Compile Include="MainActivity.cs" />
     <Compile Include="Resources\DataBaseHelper\DataBase.cs" />
     <Compile Include="Resources\ListViewAdapter.cs" />
-    <Compile Include="Resources\Model\Aluno.cs" />
+    <Compile Include="Resources\Model\Funcionario.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

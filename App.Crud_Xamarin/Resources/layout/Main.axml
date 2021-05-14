@@ -10,15 +10,20 @@
         android:layout_height="wrap_content"
         android:id="@+id/txtNome" />
     <EditText
-        android:hint="Informe a Idade"
+        android:hint="Informe o CPF"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/txtIdade" />
+        android:id="@+id/txtCpf" />
     <EditText
         android:hint="Informe o Email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/txtEmail" />
+    <EditText
+        android:hint="Informe o Endereco"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtEndereco" />
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
