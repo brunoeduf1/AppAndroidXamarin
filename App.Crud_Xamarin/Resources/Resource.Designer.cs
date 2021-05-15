@@ -150,9 +150,6 @@ namespace App.Crud_Xamarin
 			// aapt resource value: 0x7F030004
 			public const int Main = 2130903044;
 			
-			// aapt resource value: 0x7F030005
-			public const int Main2 = 2130903045;
-			
 			static Layout()
 			{
 				global::Android.Runtime.ResourceIdManager.UpdateIdValues();

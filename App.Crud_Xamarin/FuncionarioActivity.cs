@@ -8,7 +8,7 @@ using System.Collections.Generic;
 
 namespace App.Crud_Xamarin
 {
-    [Activity(Label = "App.Crud_Xamarin")]
+    [Activity(Label = "Cadastro de Funcionários")]
     public class FuncionarioActivity : Activity
     {
         ListView lvDados;
@@ -18,7 +18,7 @@ namespace App.Crud_Xamarin
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
-            SetContentView(Resource.Layout.Main);
+            SetContentView(Resource.Layout.CadFuncionario);
 
             //criar banco de dados
             CriarBancoDados();

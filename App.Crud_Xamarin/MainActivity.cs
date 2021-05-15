@@ -1,11 +1,6 @@
 ﻿using Android.App;
-using Android.Content;
 using Android.OS;
 using Android.Widget;
-using App.Crud_Xamarin.Resources;
-using App.Crud_Xamarin.Resources.DataBaseHelper;
-using App.Crud_Xamarin.Resources.Model;
-using System.Collections.Generic;
 
 namespace App.Crud_Xamarin
 {
@@ -27,12 +22,12 @@ namespace App.Crud_Xamarin
 
         private void BtnCadFuncionario_Click(object sender, System.EventArgs e)
         {
-            SetContentView(Resource.Layout.CadFuncionario);
+            StartActivity(typeof(FuncionarioActivity));
         }
 
         private void BtnCadEmpresa_Click(object sender, System.EventArgs e)
         {
-            SetContentView(Resource.Layout.CadEmpresa);
+            StartActivity(typeof(EmpresaActivity));
         }
     }
 }

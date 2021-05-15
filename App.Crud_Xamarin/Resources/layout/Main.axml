@@ -4,7 +4,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#9fd175">
+    android:background="#720707">
     <Button
         android:text="Cadastrar Empresa"
         android:layout_width="match_parent"

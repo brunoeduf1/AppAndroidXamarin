@@ -8,20 +8,20 @@ using System.Collections.Generic;
 
 namespace App.Crud_Xamarin
 {
-    [Activity(Label = "App.Crud_Xamarin")]
+    [Activity(Label = "Cadastro de Empresas")]
     public class EmpresaActivity : Activity
     {
-        private ListView lvDadosE;
+        ListView lvDadosE;
         List<Empresa> listaEmpresas = new List<Empresa>();
         DataBase db;
 
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
-            SetContentView(Resource.Layout.Main);
+            SetContentView(Resource.Layout.CadEmpresa);
 
             //criar banco de dados
-            CriarBancoDados();
+            CriarBancoDadosE();
 
             lvDadosE = FindViewById<ListView>(Resource.Id.lvDadosE);
 
@@ -103,10 +103,10 @@ namespace App.Crud_Xamarin
 
         }
 
-        private void CriarBancoDados()
+        private void CriarBancoDadosE()
         {
             db = new DataBase();
-            db.CriarBancoDeDados();
+            db.CriarBancoDeDadosE();
         }
 
         private void CarregarDados()

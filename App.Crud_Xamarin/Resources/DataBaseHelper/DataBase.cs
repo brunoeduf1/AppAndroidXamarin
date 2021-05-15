@@ -10,13 +10,13 @@ namespace App.Crud_Xamarin.Resources.DataBaseHelper
     {
         string pasta = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
 
-// Definições para funcionários
+        // Definições para funcionários
 
         public bool CriarBancoDeDados()
         {
             try
             {
-                using (var conexao = new SQLiteConnection(System.IO.Path.Combine(pasta, "AppXamarin.db")))
+                using (var conexao = new SQLiteConnection(System.IO.Path.Combine(pasta, "AppCrudXamarin.db")))
                 {
                     conexao.CreateTable<Funcionario>();
                     return true;
@@ -33,7 +33,7 @@ namespace App.Crud_Xamarin.Resources.DataBaseHelper
         {
             try
             {
-                using (var conexao = new SQLiteConnection(System.IO.Path.Combine(pasta, "AppXamarin.db")))
+                using (var conexao = new SQLiteConnection(System.IO.Path.Combine(pasta, "AppCrudXamarin.db")))
                 {
                     conexao.Insert(funcionario);
                     return true;
@@ -50,7 +50,7 @@ namespace App.Crud_Xamarin.Resources.DataBaseHelper
         {
             try
             {
-                using (var conexao = new SQLiteConnection(System.IO.Path.Combine(pasta, "AppXamarin.db")))
+                using (var conexao = new SQLiteConnection(System.IO.Path.Combine(pasta, "AppCrudXamarin.db")))
                 {
                     return conexao.Table<Funcionario>().ToList();
                 }
@@ -66,7 +66,7 @@ namespace App.Crud_Xamarin.Resources.DataBaseHelper
         {
             try
             {
-                using (var conexao = new SQLiteConnection(System.IO.Path.Combine(pasta, "AppXamarin.db")))
+                using (var conexao = new SQLiteConnection(System.IO.Path.Combine(pasta, "AppCrudXamarin.db")))
                 {
                     conexao.Query<Funcionario>("UPDATE Funcionario set Nome=?, Cpf=?, Email=?, Endereco=? Where Id=?", funcionario.Nome, funcionario.Cpf, funcionario.Email, funcionario.Endereco, funcionario.Id);
                     //conexao.Update(funcionario);
@@ -84,7 +84,7 @@ namespace App.Crud_Xamarin.Resources.DataBaseHelper
         {
             try
             {
-                using (var conexao = new SQLiteConnection(System.IO.Path.Combine(pasta, "AppXamarin.db")))
+                using (var conexao = new SQLiteConnection(System.IO.Path.Combine(pasta, "AppCrudXamarin.db")))
                 {
                     conexao.Delete(funcionario);
                     return true;
@@ -101,7 +101,7 @@ namespace App.Crud_Xamarin.Resources.DataBaseHelper
         {
             try
             {
-                using (var conexao = new SQLiteConnection(System.IO.Path.Combine(pasta, "AppXamarin.db")))
+                using (var conexao = new SQLiteConnection(System.IO.Path.Combine(pasta, "AppCrudXamarin.db")))
                 {
                     conexao.Query<Funcionario>("SELECT * FROM Funcionario Where Id=?", Id);
                     //conexao.Update(funcionario);
@@ -115,13 +115,13 @@ namespace App.Crud_Xamarin.Resources.DataBaseHelper
             }
         }
 
- // Definições para empresas
+        // Definições para empresas
 
         public bool CriarBancoDeDadosE()
         {
             try
             {
-                using (var conexao = new SQLiteConnection(System.IO.Path.Combine(pasta, "AppXamarin.db")))
+                using (var conexao = new SQLiteConnection(System.IO.Path.Combine(pasta, "AppCrudXamarin.db")))
                 {
                     conexao.CreateTable<Empresa>();
                     return true;
@@ -138,7 +138,7 @@ namespace App.Crud_Xamarin.Resources.DataBaseHelper
         {
             try
             {
-                using (var conexao = new SQLiteConnection(System.IO.Path.Combine(pasta, "AppXamarin.db")))
+                using (var conexao = new SQLiteConnection(System.IO.Path.Combine(pasta, "AppCrudXamarin.db")))
                 {
                     conexao.Insert(empresa);
                     return true;
@@ -155,7 +155,7 @@ namespace App.Crud_Xamarin.Resources.DataBaseHelper
         {
             try
             {
-                using (var conexao = new SQLiteConnection(System.IO.Path.Combine(pasta, "AppXamarin.db")))
+                using (var conexao = new SQLiteConnection(System.IO.Path.Combine(pasta, "AppCrudXamarin.db")))
                 {
                     return conexao.Table<Empresa>().ToList();
                 }
@@ -171,7 +171,7 @@ namespace App.Crud_Xamarin.Resources.DataBaseHelper
         {
             try
             {
-                using (var conexao = new SQLiteConnection(System.IO.Path.Combine(pasta, "AppXamarin.db")))
+                using (var conexao = new SQLiteConnection(System.IO.Path.Combine(pasta, "AppCrudXamarin.db")))
                 {
                     conexao.Query<Empresa>("UPDATE Empresa set Nome=?, Cnpj=?, Endereco=? Where Id=?", empresa.Nome, empresa.Cnpj, empresa.Endereco, empresa.Id);
                     //conexao.Update(empresa);
@@ -189,7 +189,7 @@ namespace App.Crud_Xamarin.Resources.DataBaseHelper
         {
             try
             {
-                using (var conexao = new SQLiteConnection(System.IO.Path.Combine(pasta, "AppXamarin.db")))
+                using (var conexao = new SQLiteConnection(System.IO.Path.Combine(pasta, "AppCrudXamarin.db")))
                 {
                     conexao.Delete(empresa);
                     return true;
@@ -206,7 +206,7 @@ namespace App.Crud_Xamarin.Resources.DataBaseHelper
         {
             try
             {
-                using (var conexao = new SQLiteConnection(System.IO.Path.Combine(pasta, "AppXamarin.db")))
+                using (var conexao = new SQLiteConnection(System.IO.Path.Combine(pasta, "AppCrudXamarin.db")))
                 {
                     conexao.Query<Empresa>("SELECT * FROM Empresa Where Id=?", Id);
                     //conexao.Update(empresa);
