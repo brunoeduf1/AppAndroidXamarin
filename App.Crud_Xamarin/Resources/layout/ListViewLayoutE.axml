@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:padding="8dp">
     <TextView
-        android:id="@+id/txtvNome"
+        android:id="@+id/txtvNomeE"
         android:text="Nome"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -14,21 +14,14 @@
         android:textStyle="bold"
         android:paddingLeft="5dp" />
     <TextView
-        android:id="@+id/txtvCpf"
+        android:id="@+id/txtvCnpj"
         android:text="Cpf"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColor="#ffff00"
         android:paddingLeft="5dp" />
     <TextView
-        android:id="@+id/txtvEmail"
-        android:text="Email"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textColor="#ffffff"
-        android:paddingLeft="5dp" />
-    <TextView
-        android:id="@+id/txtvEndereco"
+        android:id="@+id/txtvEnderecoE"
         android:text="Endereco"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
