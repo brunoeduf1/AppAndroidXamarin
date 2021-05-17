@@ -60,67 +60,85 @@ namespace App.Crud_Xamarin
 		{
 			
 			// aapt resource value: 0x7F020000
-			public const int btnCadEmpresa = 2130837504;
+			public const int btnAssEmpresa = 2130837504;
 			
 			// aapt resource value: 0x7F020001
-			public const int btnCadFuncionario = 2130837505;
+			public const int btnCadEmpresa = 2130837505;
 			
 			// aapt resource value: 0x7F020002
-			public const int btnDeletar = 2130837506;
+			public const int btnCadFuncionario = 2130837506;
 			
 			// aapt resource value: 0x7F020003
-			public const int btnEditar = 2130837507;
+			public const int btnConfirmar = 2130837507;
 			
 			// aapt resource value: 0x7F020004
-			public const int btnIncluir = 2130837508;
+			public const int btnDeletar = 2130837508;
 			
 			// aapt resource value: 0x7F020005
-			public const int lvDados = 2130837509;
+			public const int btnEditar = 2130837509;
 			
 			// aapt resource value: 0x7F020006
-			public const int lvDadosE = 2130837510;
+			public const int btnIncluir = 2130837510;
 			
 			// aapt resource value: 0x7F020007
-			public const int txtCnpj = 2130837511;
+			public const int checkBoxEmp = 2130837511;
 			
 			// aapt resource value: 0x7F020008
-			public const int txtCpf = 2130837512;
+			public const int lvDados = 2130837512;
 			
 			// aapt resource value: 0x7F020009
-			public const int txtEmail = 2130837513;
+			public const int lvDadosE = 2130837513;
 			
 			// aapt resource value: 0x7F02000A
-			public const int txtEndereco = 2130837514;
+			public const int lvDadosEChkBx = 2130837514;
 			
 			// aapt resource value: 0x7F02000B
-			public const int txtEnderecoE = 2130837515;
+			public const int textvEmp = 2130837515;
 			
 			// aapt resource value: 0x7F02000C
-			public const int txtNome = 2130837516;
+			public const int textvFun = 2130837516;
 			
 			// aapt resource value: 0x7F02000D
-			public const int txtNomeE = 2130837517;
+			public const int txtCnpj = 2130837517;
 			
 			// aapt resource value: 0x7F02000E
-			public const int txtvCnpj = 2130837518;
+			public const int txtCpf = 2130837518;
 			
 			// aapt resource value: 0x7F02000F
-			public const int txtvCpf = 2130837519;
+			public const int txtEmail = 2130837519;
 			
 			// aapt resource value: 0x7F020010
-			public const int txtvEmail = 2130837520;
+			public const int txtEndereco = 2130837520;
 			
 			// aapt resource value: 0x7F020011
-			public const int txtvEndereco = 2130837521;
+			public const int txtEnderecoE = 2130837521;
 			
 			// aapt resource value: 0x7F020012
-			public const int txtvEnderecoE = 2130837522;
+			public const int txtNome = 2130837522;
 			
 			// aapt resource value: 0x7F020013
-			public const int txtvNome = 2130837523;
+			public const int txtNomeE = 2130837523;
 			
 			// aapt resource value: 0x7F020014
-			public const int txtvNomeE = 2130837524;
+			public const int txtvCnpj = 2130837524;
+			
+			// aapt resource value: 0x7F020015
+			public const int txtvCpf = 2130837525;
+			
+			// aapt resource value: 0x7F020016
+			public const int txtvEmail = 2130837526;
+			
+			// aapt resource value: 0x7F020017
+			public const int txtvEndereco = 2130837527;
+			
+			// aapt resource value: 0x7F020018
+			public const int txtvEnderecoE = 2130837528;
+			
+			// aapt resource value: 0x7F020019
+			public const int txtvNome = 2130837529;
+			
+			// aapt resource value: 0x7F02001A
+			public const int txtvNomeE = 2130837530;
 			
 			static Id()
 			{
@@ -139,16 +157,25 @@ namespace App.Crud_Xamarin
 			public const int CadEmpresa = 2130903040;
 			
 			// aapt resource value: 0x7F030001
-			public const int CadFuncionario = 2130903041;
+			public const int CadEmpresaChkBx = 2130903041;
 			
 			// aapt resource value: 0x7F030002
-			public const int ListViewLayout = 2130903042;
+			public const int CadFuncionario = 2130903042;
 			
 			// aapt resource value: 0x7F030003
-			public const int ListViewLayoutE = 2130903043;
+			public const int ListViewLayout = 2130903043;
 			
 			// aapt resource value: 0x7F030004
-			public const int Main = 2130903044;
+			public const int ListViewLayoutChkBx = 2130903044;
+			
+			// aapt resource value: 0x7F030005
+			public const int ListViewLayoutE = 2130903045;
+			
+			// aapt resource value: 0x7F030006
+			public const int ListViewLayoutEChkBx = 2130903046;
+			
+			// aapt resource value: 0x7F030007
+			public const int Main = 2130903047;
 			
 			static Layout()
 			{

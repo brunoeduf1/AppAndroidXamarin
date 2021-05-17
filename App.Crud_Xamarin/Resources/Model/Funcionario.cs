@@ -12,5 +12,10 @@ namespace App.Crud_Xamarin.Resources.Model
         public string Cpf { get; set; }
         public string Email { get; set; }
         public string Endereco { get; set; }
+
+        public bool Selecionado { get; set; }
+
+        public Empresa Empresa_list { get; }
+
     }
 }

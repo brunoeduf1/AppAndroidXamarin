@@ -5,6 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="8dp">
+    <CheckBox
+        android:text="Oioi"
+        android:layout_width="353.5dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/checkBoxEmp"
+        android:layout_marginLeft="0.0dp"
+        android:layout_marginRight="240.0dp" />
     <TextView
         android:id="@+id/txtvNomeE"
         android:text="Nome"
@@ -14,7 +21,6 @@
         android:textSize="15dp"
         android:textStyle="bold"
         android:paddingLeft="5dp" />
-
     <TextView
         android:id="@+id/txtvCnpj"
         android:text="Cpf"
@@ -29,4 +35,9 @@
         android:layout_height="wrap_content"
         android:textColor="#000000"
         android:paddingLeft="5dp" />
+    <TextView
+        android:text="Funcionario"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textvFun" />
 </LinearLayout>

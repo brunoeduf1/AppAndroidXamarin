@@ -77,14 +77,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EmpresaActivityChkBx.cs" />
     <Compile Include="EmpresaActivity.cs" />
     <Compile Include="FuncionarioActivity.cs" />
     <Compile Include="MainActivity.cs" />
+    <Compile Include="Resources\ListViewAdapterEChkBx.cs" />
     <Compile Include="Resources\ListViewAdapterE.cs" />
     <Compile Include="Resources\DataBaseHelper\DataBase.cs" />
     <Compile Include="Resources\ListViewAdapter.cs" />
     <Compile Include="Resources\Model\Empresa.cs" />
     <Compile Include="Resources\Model\Funcionario.cs" />
+    <Compile Include="Resources\Model\Match.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -122,6 +125,24 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\ListViewLayoutE.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\ListViewLayoutEChkBx.axml">
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\CadEmpresaChkBx.axml">
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\ListViewLayoutChkBx.axml">
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>

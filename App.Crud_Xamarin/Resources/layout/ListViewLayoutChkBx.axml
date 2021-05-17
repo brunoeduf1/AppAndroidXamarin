@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="8dp">
     <TextView
-        android:id="@+id/txtvNomeE"
+        android:id="@+id/txtvNome"
         android:text="Nome"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -14,19 +13,30 @@
         android:textSize="15dp"
         android:textStyle="bold"
         android:paddingLeft="5dp" />
-
     <TextView
-        android:id="@+id/txtvCnpj"
+        android:id="@+id/txtvCpf"
         android:text="Cpf"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColor="#ffff00"
         android:paddingLeft="5dp" />
     <TextView
-        android:id="@+id/txtvEnderecoE"
+        android:id="@+id/txtvEmail"
+        android:text="Email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#ffffff"
+        android:paddingLeft="5dp" />
+    <TextView
+        android:id="@+id/txtvEndereco"
         android:text="Endereco"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColor="#000000"
         android:paddingLeft="5dp" />
+    <TextView
+        android:text="Empresa"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textvEmp" />
 </LinearLayout>

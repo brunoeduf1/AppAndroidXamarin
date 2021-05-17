@@ -9,9 +9,9 @@ using System.Collections.Generic;
 namespace App.Crud_Xamarin
 {
     [Activity(Label = "Cadastro de Empresas")]
-    public class EmpresaActivity : Activity
+    public class EmpresaActivityChkBx : Activity
     {
-        ListView lvDadosE;
+        ListView lvDadosEChkBx;
         List<Empresa> listaEmpresas = new List<Empresa>();
 
         DataBase db;
@@ -19,12 +19,12 @@ namespace App.Crud_Xamarin
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
-            SetContentView(Resource.Layout.CadEmpresa);
+            SetContentView(Resource.Layout.CadEmpresaChkBx);
 
             //criar banco de dados
             CriarBancoDadosE();
 
-            lvDadosE = FindViewById<ListView>(Resource.Id.lvDadosE);
+            lvDadosEChkBx = FindViewById<ListView>(Resource.Id.lvDadosEChkBx);
 
             var txtNomeE = FindViewById<EditText>(Resource.Id.txtNomeE);
             var txtCnpj = FindViewById<EditText>(Resource.Id.txtCnpj);
@@ -33,6 +33,11 @@ namespace App.Crud_Xamarin
             var btnIncluir = FindViewById<Button>(Resource.Id.btnIncluir);
             var btnEditar = FindViewById<Button>(Resource.Id.btnEditar);
             var btnDeletar = FindViewById<Button>(Resource.Id.btnDeletar);
+
+            var btnConfirmar = FindViewById<Button>(Resource.Id.btnConfirmar);
+
+            CheckBox checkBoxEmp = FindViewById<CheckBox>(Resource.Id.checkBoxEmp);
+            
 
             //carregar Dados
             CarregarDados();
@@ -78,16 +83,19 @@ namespace App.Crud_Xamarin
                 db.DeletarEmpresa(empresa);
                 CarregarDados();
             };
-
+          
             //evento itemClick do ListView
-            lvDadosE.ItemClick += (s, e) =>
+            lvDadosEChkBx.ItemClick += (s, e) =>
             {
-                for (int i = 0; i < lvDadosE.Count; i++)
+                for (int i = 0; i < lvDadosEChkBx.Count; i++)
                 {
                     if (e.Position == i)
-                        lvDadosE.GetChildAt(i).SetBackgroundColor(Android.Graphics.Color.MediumBlue);
+                    {
+                        lvDadosEChkBx.GetChildAt(i).SetBackgroundColor(Android.Graphics.Color.MediumBlue);
+                    }
+
                     else
-                        lvDadosE.GetChildAt(i).SetBackgroundColor(Android.Graphics.Color.Transparent);
+                        lvDadosEChkBx.GetChildAt(i).SetBackgroundColor(Android.Graphics.Color.Transparent);
                 }
 
                 //vinculando dados do listview 
@@ -99,7 +107,11 @@ namespace App.Crud_Xamarin
                 txtNomeE.Tag = e.Id;
                 txtCnpj.Text = lvtxtCnpj.Text;
                 txtEnderecoE.Text = lvtxtEnderecoE.Text;
+            };
 
+            btnConfirmar.Click += delegate
+            {
+                StartActivity(typeof(FuncionarioActivity));
             };
 
         }
@@ -113,9 +125,9 @@ namespace App.Crud_Xamarin
         private void CarregarDados()
         {
             listaEmpresas = db.GetEmpresas();
-            var adapter = new ListViewAdapterE(this, listaEmpresas);
-            lvDadosE.Adapter = adapter;
+            var adapter = new ListViewAdapterEChkBx(this, listaEmpresas);
+            lvDadosEChkBx.Adapter = adapter;
         }
+        
     }
 }
-

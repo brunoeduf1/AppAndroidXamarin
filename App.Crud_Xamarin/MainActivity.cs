@@ -16,6 +16,7 @@ namespace App.Crud_Xamarin
             Button btnCadEmpresa  = FindViewById<Button>(Resource.Id.btnCadEmpresa);
             Button btnCadFuncionario = FindViewById<Button>(Resource.Id.btnCadFuncionario);
 
+
             btnCadEmpresa.Click += BtnCadEmpresa_Click;
             btnCadFuncionario.Click += BtnCadFuncionario_Click;
         }

@@ -13,6 +13,7 @@ namespace App.Crud_Xamarin
     {
         ListView lvDados;
         List<Funcionario> listaFuncionarios = new List<Funcionario>();
+
         DataBase db;
 
         protected override void OnCreate(Bundle bundle)
@@ -33,6 +34,7 @@ namespace App.Crud_Xamarin
             var btnIncluir = FindViewById<Button>(Resource.Id.btnIncluir);
             var btnEditar = FindViewById<Button>(Resource.Id.btnEditar);
             var btnDeletar = FindViewById<Button>(Resource.Id.btnDeletar);
+            var btnAssEmpresa = FindViewById<Button>(Resource.Id.btnAssEmpresa);
 
             //carregar Dados
             CarregarDados();
@@ -80,6 +82,14 @@ namespace App.Crud_Xamarin
                 };
                 db.DeletarFuncionario(funcionario);
                 CarregarDados();
+            };
+
+            //botão Cadastrar Empresa
+            btnAssEmpresa.Click += delegate
+            {
+                //if (lvDados.ItemSelected)
+                
+                StartActivity(typeof(EmpresaActivityChkBx));
             };
 
             //evento itemClick do ListView

@@ -9,22 +9,17 @@
         android:hint="Informe o nome"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/txtNome" />
+        android:id="@+id/txtNomeE" />
     <EditText
-        android:hint="Informe o CPF"
+        android:hint="Informe o CNPJ"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/txtCpf" />
-    <EditText
-        android:hint="Informe o Email"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/txtEmail" />
+        android:id="@+id/txtCnpj" />
     <EditText
         android:hint="Informe o Endereco"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/txtEndereco" />
+        android:id="@+id/txtEnderecoE" />
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
@@ -49,16 +44,15 @@
             android:layout_weight="1" />
     </LinearLayout>
     <Button
-        android:text="Associar Empresa"
+        android:text="Confirmar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/btnAssEmpresa"
-        android:layout_marginLeft="0.0dp" />
+        android:id="@+id/btnConfirmar" />
     <ListView
         android:minWidth="25px"
         android:minHeight="25px"
         android:background="#8b7355"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/lvDados" />
+        android:id="@+id/lvDadosEChkBx" />
 </LinearLayout>

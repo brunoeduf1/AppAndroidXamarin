@@ -220,5 +220,28 @@ namespace App.Crud_Xamarin.Resources.DataBaseHelper
             }
         }
 
+        // Associando Funcionario na empresa e vice e versa
+        public bool Match(int id_empresa, int id_funcionario)
+        {
+            try
+            {
+                using (var conexao = new SQLiteConnection(System.IO.Path.Combine(pasta, "AppCrudXamarin.db")))
+                {
+                    conexao.Query<Match>("SELECT * FROM Empresa Where Id=?", id_empresa);
+                    //conexao.Update(empresa);
+
+                    conexao.Query<Match>("SELECT * FROM Funcionario Where Id=?", id_funcionario);
+
+                    return true;
+                }
+
+            }
+            catch (SQLiteException ex)
+            {
+                Log.Info("SQLiteEx", ex.Message);
+                return false;
+            }
+        }
+
     }
 }

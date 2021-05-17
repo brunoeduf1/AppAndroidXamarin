@@ -11,5 +11,7 @@ namespace App.Crud_Xamarin.Resources.Model
         public string Nome { get; set; }
         public string Cnpj { get; set; }
         public string Endereco { get; set; }
+        public Funcionario Funcionario_list { get; }
+        public bool Selecionado { get; set; }
     }
 }
