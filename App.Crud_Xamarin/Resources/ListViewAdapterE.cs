@@ -37,10 +37,12 @@ namespace App.Crud_Xamarin.Resources
             var lvtxtNomeE = view.FindViewById<TextView>(Resource.Id.txtvNomeE);
             var lvtxtCnpj = view.FindViewById<TextView>(Resource.Id.txtvCnpj);
             var lvtxtEnderecoE = view.FindViewById<TextView>(Resource.Id.txtvEnderecoE);
+            var lvtxtFun = view.FindViewById<TextView>(Resource.Id.textvFun);
 
-            lvtxtNomeE.Text = empresas[position].Nome;
-            lvtxtCnpj.Text = "" + empresas[position].Cnpj;
-            lvtxtEnderecoE.Text = empresas[position].Endereco;
+            lvtxtNomeE.Text = "Empresa: " + empresas[position].Nome;
+            lvtxtCnpj.Text = "CNPJ: " + empresas[position].Cnpj;
+            lvtxtEnderecoE.Text = "Endereco: " + empresas[position].Endereco;
+            //lvtxtFun.Text = "Funcionario: " + empresas[position].FuncionarioEmpresa;
 
             return view;
 

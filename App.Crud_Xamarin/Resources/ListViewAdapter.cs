@@ -39,10 +39,10 @@ namespace App.Crud_Xamarin.Resources
             var lvtxtEmail = view.FindViewById<TextView>(Resource.Id.txtvEmail);
             var lvtxtEndereco = view.FindViewById<TextView>(Resource.Id.txtvEndereco);
 
-            lvtxtNome.Text = funcionarios[position].Nome;
-            lvtxtCpf.Text = "" + funcionarios[position].Cpf;
-            lvtxtEmail.Text = funcionarios[position].Email;
-            lvtxtEndereco.Text = funcionarios[position].Endereco;
+            lvtxtNome.Text = "Funcionario: " + funcionarios[position].Nome;
+            lvtxtCpf.Text = "CPF: " + funcionarios[position].Cpf;
+            lvtxtEmail.Text = "E-mail:" + funcionarios[position].Email;
+            lvtxtEndereco.Text = "Endereco: " + funcionarios[position].Endereco;
 
             return view;
 

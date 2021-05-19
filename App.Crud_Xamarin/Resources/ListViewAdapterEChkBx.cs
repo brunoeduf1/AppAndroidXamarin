@@ -3,6 +3,7 @@ using Android.Views;
 using Android.Widget;
 using App.Crud_Xamarin.Resources.Model;
 using System.Collections.Generic;
+using System;
 
 namespace App.Crud_Xamarin.Resources
 {
@@ -32,67 +33,118 @@ namespace App.Crud_Xamarin.Resources
 
         public override View GetView(int position, View convertView, ViewGroup parent)
         {
-            View view;
+            View view = convertView;
+            MyViewHolder holder;
 
-            if (convertView == null)
+            if (view != null)
             {
-                view = convertView ?? context.LayoutInflater.Inflate(Resource.Layout.ListViewLayoutEChkBx, parent, false);
+                holder = view.Tag as MyViewHolder;
+                holder.mCheckBox.Tag = position;
             }
-
             else
             {
-                view = convertView;
+                holder = new MyViewHolder();
+                view = this.context.LayoutInflater.Inflate(Resource.Layout.ListViewLayoutEChkBx, null);
+
+                holder.mCheckBox = view.FindViewById<CheckBox>(Resource.Id.checkBoxEmp);
+                holder.mCheckBox.Tag = position;
+
+                view.Tag = holder;
             }
 
             var lvtxtNomeE = view.FindViewById<TextView>(Resource.Id.txtvNomeE);
             var lvtxtCnpj = view.FindViewById<TextView>(Resource.Id.txtvCnpj);
             var lvtxtEnderecoE = view.FindViewById<TextView>(Resource.Id.txtvEnderecoE);
-
-            lvtxtNomeE.Text = empresas[position].Nome;
-            lvtxtCnpj.Text = "" + empresas[position].Cnpj;
-            lvtxtEnderecoE.Text = empresas[position].Endereco;
+            var lvtxtFun = view.FindViewById<TextView>(Resource.Id.textvFun);
+          
+            lvtxtNomeE.Text = "Empresa: " + empresas[position].Nome;
+            lvtxtCnpj.Text = "CNPJ: " + empresas[position].Cnpj;
+            lvtxtEnderecoE.Text = "Endereco: " + empresas[position].Endereco;
+            lvtxtFun.Text = "Funcionario: " + empresas[position].FuncionarioEmpresa;
 
             CheckBox checkBoxEmp = view.FindViewById<CheckBox>(Resource.Id.checkBoxEmp);
 
             Empresa empresa = this.empresas[position];
 
-            checkBoxEmp.Tag = position;
-            checkBoxEmp.Tag = empresa.Nome;
-            checkBoxEmp.Checked = empresa.Selecionado;
-
-            checkBoxEmp.SetOnCheckedChangeListener(null);
-            checkBoxEmp.SetOnCheckedChangeListener(new CheckedChangeListener(this.context));
+            holder.mCheckBox.Tag = position;
+            holder.mCheckBox.Checked = empresas[position].Checkado;
+           
+            holder.mCheckBox.SetOnCheckedChangeListener(null);
+            holder.mCheckBox.Checked = empresa.Checkado;
+            holder.mCheckBox.SetOnCheckedChangeListener(new CheckedChangeListener(this.context, empresas));
 
             return view;
+        }
+
+        public class MyViewHolder : Java.Lang.Object
+        {
+            public CheckBox mCheckBox { get; set; }
         }
 
         private class CheckedChangeListener : Java.Lang.Object, CompoundButton.IOnCheckedChangeListener
         {
             private Activity activity;
+            private List<Empresa> list;
 
-            public CheckedChangeListener(Activity activity)
+            public CheckedChangeListener(Activity activity, List<Empresa> datalist)
             {
                 this.activity = activity;
+                this.list = datalist;
             }
 
             public void OnCheckedChanged(CompoundButton buttonView, bool isChecked)
             {
+                Int32 position = 1;
+
                 if (isChecked)
                 {
-                    string name = (string)buttonView.Tag;
-                    string text = string.Format("{0} Marcado.", name);
-                    Toast.MakeText(this.activity, text, ToastLength.Short).Show();                   
+                    string strMyObject = buttonView.Tag.ToString();
+                    System.Diagnostics.Debug.WriteLine("Conteudo do Tag = " + strMyObject);
+
+                    try
+                    {
+                        position = Int32.Parse(strMyObject);
+                    }
+                    catch (FormatException)
+                    {
+                        Console.WriteLine($"Unable to parse");
+                    }
+
+                    Empresa item = list[position];
+                    item.Checkado = true;
+                    list[position].Checkado = true;
+
+                    string text = string.Format("{0} Marcado.", item.Nome);
+                    Toast.MakeText(this.activity, text, ToastLength.Short).Show();
+                }
+
+                else
+                {
+                    string strMyObject = buttonView.Tag.ToString();
+
+                    try
+                    {
+                        position = Int32.Parse(strMyObject);
+                    }
+                    catch (FormatException)
+                    {
+                        Console.WriteLine($"Unable to parse");
+                    }
+
+                    list[position].Checkado = false;
                 }
             }
         }
 
-        public void ListView_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
+        private void MBtn_Click(object sender, System.EventArgs e)
         {
-            ListView listView = sender as ListView;
-            var view = listView.GetChildAt(e.Position);
-
-            CheckBox chk = view.FindViewById<CheckBox>(Resource.Id.checkBoxEmp);
-            chk.Checked = true;
+            foreach (Empresa model in empresas)
+            {
+                if (model.Checkado)
+                {
+                    System.Diagnostics.Debug.WriteLine("selected item = " + model.Nome);
+                }
+            }
         }
 
 

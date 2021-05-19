@@ -173,7 +173,7 @@ namespace App.Crud_Xamarin.Resources.DataBaseHelper
             {
                 using (var conexao = new SQLiteConnection(System.IO.Path.Combine(pasta, "AppCrudXamarin.db")))
                 {
-                    conexao.Query<Empresa>("UPDATE Empresa set Nome=?, Cnpj=?, Endereco=? Where Id=?", empresa.Nome, empresa.Cnpj, empresa.Endereco, empresa.Id);
+                    conexao.Query<Empresa>("UPDATE Empresa set Nome=?, Cnpj=?, Endereco=?, FuncionarioEmpresa=? Where Id=?", empresa.Nome, empresa.Cnpj, empresa.Endereco, empresa.FuncionarioEmpresa, empresa.Id);
                     //conexao.Update(empresa);
                     return true;
                 }
@@ -221,20 +221,15 @@ namespace App.Crud_Xamarin.Resources.DataBaseHelper
         }
 
         // Associando Funcionario na empresa e vice e versa
-        public bool Match(int id_empresa, int id_funcionario)
+        public bool InserirMatch(Match match)
         {
             try
             {
                 using (var conexao = new SQLiteConnection(System.IO.Path.Combine(pasta, "AppCrudXamarin.db")))
                 {
-                    conexao.Query<Match>("SELECT * FROM Empresa Where Id=?", id_empresa);
-                    //conexao.Update(empresa);
-
-                    conexao.Query<Match>("SELECT * FROM Funcionario Where Id=?", id_funcionario);
-
+                    conexao.Insert(match);
                     return true;
                 }
-
             }
             catch (SQLiteException ex)
             {

@@ -1,4 +1,5 @@
 ﻿using Android.App;
+using Android.Content;
 using Android.OS;
 using Android.Widget;
 using App.Crud_Xamarin.Resources;
@@ -85,20 +86,20 @@ namespace App.Crud_Xamarin
             };
 
             //botão Cadastrar Empresa
-            btnAssEmpresa.Click += delegate
-            {
-                //if (lvDados.ItemSelected)
-                
-                StartActivity(typeof(EmpresaActivityChkBx));
-            };
+            btnAssEmpresa.Click += BtnAssEmpresa_Click;
 
             //evento itemClick do ListView
             lvDados.ItemClick += (s, e) =>
             {
+
                 for (int i = 0; i < lvDados.Count; i++)
                 {
                     if (e.Position == i)
+                    {
                         lvDados.GetChildAt(i).SetBackgroundColor(Android.Graphics.Color.MediumBlue);
+                        listaFuncionarios[i].Selecionado = true;
+                    }
+
                     else
                         lvDados.GetChildAt(i).SetBackgroundColor(Android.Graphics.Color.Transparent);
                 }
@@ -117,6 +118,28 @@ namespace App.Crud_Xamarin
 
             };
 
+        }
+
+        public void BtnAssEmpresa_Click(object sender, System.EventArgs e)
+        {
+
+            int posicao = 0;
+
+            for (int i = 0 ; i < lvDados.Count; i++)
+            {
+                if (listaFuncionarios[i].Selecionado)
+                {
+                    posicao = i;
+                }            
+            }
+
+            Intent empresaActivity = new Intent(this, typeof(EmpresaActivityChkBx));
+            empresaActivity.PutExtra("nome", listaFuncionarios[posicao].Nome.ToString());
+            StartActivity(empresaActivity);
+
+            listaFuncionarios[posicao].Selecionado = false;
+
+            StartActivity(typeof(EmpresaActivityChkBx));
         }
 
         private void CriarBancoDados()

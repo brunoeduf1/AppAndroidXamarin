@@ -13,9 +13,11 @@ namespace App.Crud_Xamarin.Resources.Model
         public string Email { get; set; }
         public string Endereco { get; set; }
 
+        //Funcionario
         public bool Selecionado { get; set; }
 
-        public Empresa Empresa_list { get; }
+        //Empresa
+        public bool Checkado { get; set; }
 
     }
 }

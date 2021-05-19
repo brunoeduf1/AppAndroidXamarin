@@ -4,7 +4,9 @@ using Android.Widget;
 using App.Crud_Xamarin.Resources;
 using App.Crud_Xamarin.Resources.DataBaseHelper;
 using App.Crud_Xamarin.Resources.Model;
+using Android.Content;
 using System.Collections.Generic;
+using Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime.Models;
 
 namespace App.Crud_Xamarin
 {
@@ -31,14 +33,11 @@ namespace App.Crud_Xamarin
             var txtEnderecoE = FindViewById<EditText>(Resource.Id.txtEnderecoE);
 
             var btnIncluir = FindViewById<Button>(Resource.Id.btnIncluir);
-            var btnEditar = FindViewById<Button>(Resource.Id.btnEditar);
-            var btnDeletar = FindViewById<Button>(Resource.Id.btnDeletar);
 
             var btnConfirmar = FindViewById<Button>(Resource.Id.btnConfirmar);
 
             CheckBox checkBoxEmp = FindViewById<CheckBox>(Resource.Id.checkBoxEmp);
-            
-
+       
             //carregar Dados
             CarregarDados();
 
@@ -50,37 +49,9 @@ namespace App.Crud_Xamarin
                     Nome = txtNomeE.Text,
                     Cnpj = txtCnpj.Text,
                     Endereco = txtEnderecoE.Text,
-
+                    FuncionarioEmpresa = "",
                 };
                 db.InserirEmpresa(empresa);
-                CarregarDados();
-            };
-
-            //botão editar
-            btnEditar.Click += delegate
-            {
-                Empresa empresa = new Empresa()
-                {
-                    Id = int.Parse(txtNomeE.Tag.ToString()),
-                    Nome = txtNomeE.Text,
-                    Cnpj = txtCnpj.Text,
-                    Endereco = txtEnderecoE.Text,
-                };
-                db.AtualizarEmpresa(empresa);
-                CarregarDados();
-            };
-
-            //botão deletar
-            btnDeletar.Click += delegate
-            {
-                Empresa empresa = new Empresa()
-                {
-                    Id = int.Parse(txtNomeE.Tag.ToString()),
-                    Nome = txtNomeE.Text,
-                    Cnpj = txtCnpj.Text,
-                    Endereco = txtEnderecoE.Text,
-                };
-                db.DeletarEmpresa(empresa);
                 CarregarDados();
             };
           
@@ -107,13 +78,46 @@ namespace App.Crud_Xamarin
                 txtNomeE.Tag = e.Id;
                 txtCnpj.Text = lvtxtCnpj.Text;
                 txtEnderecoE.Text = lvtxtEnderecoE.Text;
-            };
 
+            };
+           
+            //Botao confirmar
             btnConfirmar.Click += delegate
             {
-                StartActivity(typeof(FuncionarioActivity));
+                string selecionado = Selecionado();
+
+                int idEmpresa = 0;
+
+                for (int i = 0; i < lvDadosEChkBx.Count; i++)
+                {
+                    if (listaEmpresas[i].Checkado)
+                    {
+                        idEmpresa = i;
+                        listaEmpresas[i].Checkado = false;
+                    }
+                }
+
+                Empresa empresa = new Empresa()
+                {
+                    Id = listaEmpresas[idEmpresa].Id,
+                    Nome = listaEmpresas[idEmpresa].Nome,
+                    Cnpj = listaEmpresas[idEmpresa].Cnpj,
+                    Endereco = listaEmpresas[idEmpresa].Endereco,
+                    FuncionarioEmpresa = selecionado,
+                };
+
+                db.AtualizarEmpresa(empresa);
+                CarregarDados();
+
             };
 
+        }
+
+        public string Selecionado()
+        {
+            string selecionado = Intent.GetStringExtra("nome");
+
+            return selecionado;
         }
 
         private void CriarBancoDadosE()
