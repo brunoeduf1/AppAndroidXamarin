@@ -21,7 +21,7 @@ namespace App.Crud_Xamarin
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
-            //SetContentView(Resource.Layout.CadFuncionarioChkBx);
+            SetContentView(Resource.Layout.CadFuncionarioChkBx);
 
             //criar banco de dados
             CriarBancoDadosE();
@@ -31,13 +31,13 @@ namespace App.Crud_Xamarin
             var txtNome = FindViewById<EditText>(Resource.Id.txtNome);
             var txtCpf = FindViewById<EditText>(Resource.Id.txtCpf);
             var txtEmail = FindViewById<EditText>(Resource.Id.txtEmail);
-            var txtEndereco = FindViewById<EditText>(Resource.Id.txtEnderecoE);
+            var txtEndereco = FindViewById<EditText>(Resource.Id.txtEndereco);
 
-            var btnIncluir = FindViewById<Button>(Resource.Id.btnIncluir);
-            var btnConfirmar = FindViewById<Button>(Resource.Id.btnConfirmar);
-            var btnRetornar = FindViewById<Button>(Resource.Id.btnRetornar);
+            var btnIncluir = FindViewById<Button>(Resource.Id.btnIncluir2);
+            var btnConfirmar = FindViewById<Button>(Resource.Id.btnConfirmar2);
+            var btnRetornar = FindViewById<Button>(Resource.Id.btnRetornar2);
 
-            CheckBox checkBoxEmp = FindViewById<CheckBox>(Resource.Id.checkBoxEmp);
+            CheckBox checkBoxFun = FindViewById<CheckBox>(Resource.Id.checkBoxFun);
 
             //carregar Dados
             CarregarDados();
@@ -82,14 +82,13 @@ namespace App.Crud_Xamarin
                 txtCpf.Text = lvtxtCpf.Text;
                 txtEmail.Text = lvtxtEmail.Text;
                 txtEndereco.Text = lvtxtEndereco.Text;
-
             };
 
             //Botao confirmar
             btnConfirmar.Click += delegate
             {
-                string selecionado = Selecionado();
-                System.Diagnostics.Debug.WriteLine("Conteudo do selecionado = " + selecionado);
+                /*string selecionado = Selecionado();
+                //System.Diagnostics.Debug.WriteLine("Conteudo do selecionado = " + selecionado);
 
                 int[] checkado = new int[20];
 
@@ -120,7 +119,7 @@ namespace App.Crud_Xamarin
 
                         listaFuncionarios[i].Checkado = false;
                     }
-                }
+                }*/
             };
 
             btnRetornar.Click += delegate

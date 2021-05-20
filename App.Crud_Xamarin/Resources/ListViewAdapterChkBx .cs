@@ -62,7 +62,7 @@ namespace App.Crud_Xamarin.Resources
             lvtxtEmail.Text = "E-mail:" + funcionarios[position].Email;
             lvtxtEndereco.Text = "Endereco: " + funcionarios[position].Endereco;
 
-            CheckBox checkBoxEmp = view.FindViewById<CheckBox>(Resource.Id.checkBoxFun);
+            CheckBox checkBoxFun = view.FindViewById<CheckBox>(Resource.Id.checkBoxFun);
 
             Funcionario funcionario = this.funcionarios[position];
 

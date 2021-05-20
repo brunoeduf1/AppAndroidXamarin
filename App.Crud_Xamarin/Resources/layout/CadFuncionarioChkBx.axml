@@ -30,7 +30,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <Button
-            android:id="@+id/btnIncluir"
+            android:id="@+id/btnIncluir2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Incluir"
@@ -40,8 +40,13 @@
         android:text="Comfirmar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/btnConfirmarFun"
+        android:id="@+id/btnConfirmar2"
         android:layout_marginLeft="0.0dp" />
+    <Button
+        android:text="Retornar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnRetornar2" />
     <ListView
         android:minWidth="25px"
         android:minHeight="25px"
