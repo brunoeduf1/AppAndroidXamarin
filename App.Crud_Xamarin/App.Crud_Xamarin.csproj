@@ -92,10 +92,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FuncionarioActivityChkBx .cs" />
     <Compile Include="EmpresaActivityChkBx.cs" />
     <Compile Include="EmpresaActivity.cs" />
     <Compile Include="FuncionarioActivity.cs" />
     <Compile Include="MainActivity.cs" />
+    <Compile Include="Resources\ListViewAdapterChkBx .cs" />
     <Compile Include="Resources\ListViewAdapterEChkBx.cs" />
     <Compile Include="Resources\ListViewAdapterE.cs" />
     <Compile Include="Resources\DataBaseHelper\DataBase.cs" />
@@ -110,7 +112,7 @@
     <None Include="packages.config" />
     <None Include="Resources\AboutResources.txt" />
     <None Include="Assets\AboutAssets.txt" />
-    <AndroidResource Include="Resources\layout\ListViewLayout.axml">
+    <AndroidResource Include="Resources\layout\ListViewFuncionario.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
@@ -139,12 +141,12 @@
     </AndroidResource>
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\ListViewLayoutE.axml">
+    <AndroidResource Include="Resources\layout\ListViewEmpresa.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\ListViewLayoutEChkBx.axml">
+    <AndroidResource Include="Resources\layout\ListViewEmpresaChkBx.axml">
       <Generator>MSBuild:UpdateGeneratedFiles</Generator>
       <SubType>Designer</SubType>
     </AndroidResource>
@@ -156,7 +158,13 @@
     </AndroidResource>
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\ListViewLayoutChkBx.axml">
+    <AndroidResource Include="Resources\layout\ListViewFuncionarioChkBx.axml">
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\CadFuncionarioChkBx.axml">
       <Generator>MSBuild:UpdateGeneratedFiles</Generator>
       <SubType>Designer</SubType>
     </AndroidResource>

@@ -95,14 +95,14 @@ namespace App.Crud_Xamarin
                     if (listaFuncionarios[i].Selecionado)
                     {
                         posicao = i;
+
+                        Intent empresaActivity = new Intent(this, typeof(EmpresaActivityChkBx));
+                        empresaActivity.PutExtra("nome", listaFuncionarios[posicao].Nome.ToString());
+                        StartActivity(empresaActivity);
+
+                        listaFuncionarios[posicao].Selecionado = false;
                     }
                 }
-
-                Intent empresaActivity = new Intent(this, typeof(EmpresaActivityChkBx));
-                empresaActivity.PutExtra("nome", listaFuncionarios[posicao].Nome.ToString());
-                StartActivity(empresaActivity);
-
-                listaFuncionarios[posicao].Selecionado = false;
             };
 
             //evento itemClick do ListView

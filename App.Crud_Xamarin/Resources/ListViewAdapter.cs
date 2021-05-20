@@ -32,17 +32,19 @@ namespace App.Crud_Xamarin.Resources
 
         public override View GetView(int position, View convertView, ViewGroup parent)
         {
-            var view = convertView ?? context.LayoutInflater.Inflate(Resource.Layout.ListViewLayout, parent, false);
+            var view = convertView ?? context.LayoutInflater.Inflate(Resource.Layout.ListViewFuncionario, parent, false);
 
             var lvtxtNome = view.FindViewById<TextView>(Resource.Id.txtvNome);
             var lvtxtCpf = view.FindViewById<TextView>(Resource.Id.txtvCpf);
             var lvtxtEmail = view.FindViewById<TextView>(Resource.Id.txtvEmail);
             var lvtxtEndereco = view.FindViewById<TextView>(Resource.Id.txtvEndereco);
+            //var lvtxtvEmp = view.FindViewById<TextView>(Resource.Id.txtvEmp);
 
             lvtxtNome.Text = "Funcionario: " + funcionarios[position].Nome;
             lvtxtCpf.Text = "CPF: " + funcionarios[position].Cpf;
             lvtxtEmail.Text = "E-mail:" + funcionarios[position].Email;
             lvtxtEndereco.Text = "Endereco: " + funcionarios[position].Endereco;
+            //lvtxtvEmp.Text = "Empresa: " + funcionarios[position].EmpresaFuncionario;
 
             return view;
 

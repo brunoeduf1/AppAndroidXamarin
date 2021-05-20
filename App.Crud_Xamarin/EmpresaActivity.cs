@@ -33,6 +33,7 @@ namespace App.Crud_Xamarin
             var btnIncluir = FindViewById<Button>(Resource.Id.btnIncluir);
             var btnEditar = FindViewById<Button>(Resource.Id.btnEditar);
             var btnDeletar = FindViewById<Button>(Resource.Id.btnDeletar);
+            var btnAssFuncionario = FindViewById<Button>(Resource.Id.btnAssFuncionario);
 
             //carregar Dados
             CarregarDados();
@@ -79,6 +80,12 @@ namespace App.Crud_Xamarin
                 CarregarDados();
             };
 
+            //Associar Funcionario
+            btnAssFuncionario.Click += delegate
+            {
+                StartActivity(typeof(FuncionarioActivityChkBx));
+            };
+
             //evento itemClick do ListView
             lvDadosE.ItemClick += (s, e) =>
             {
@@ -94,6 +101,7 @@ namespace App.Crud_Xamarin
                 var lvtxtNomeE = e.View.FindViewById<TextView>(Resource.Id.txtvNomeE);
                 var lvtxtCnpj = e.View.FindViewById<TextView>(Resource.Id.txtvCnpj);
                 var lvtxtEnderecoE = e.View.FindViewById<TextView>(Resource.Id.txtvEnderecoE);
+                
 
                 txtNomeE.Text = lvtxtNomeE.Text;
                 txtNomeE.Tag = e.Id;

@@ -27,4 +27,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingLeft="5dp" />
+    <TextView
+        android:id="@+id/textvFun"
+        android:text="Funcionario"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="5dp" />
 </LinearLayout>

@@ -68,7 +68,7 @@ namespace App.Crud_Xamarin.Resources.DataBaseHelper
             {
                 using (var conexao = new SQLiteConnection(System.IO.Path.Combine(pasta, "AppCrudXamarin.db")))
                 {
-                    conexao.Query<Funcionario>("UPDATE Funcionario set Nome=?, Cpf=?, Email=?, Endereco=? Where Id=?", funcionario.Nome, funcionario.Cpf, funcionario.Email, funcionario.Endereco, funcionario.Id);
+                    conexao.Query<Funcionario>("UPDATE Funcionario set Nome=?, Cpf=?, Email=?, Endereco=?, EmpresaFuncionario=? Where Id=?", funcionario.Nome, funcionario.Cpf, funcionario.Email, funcionario.Endereco, funcionario.EmpresaFuncionario, funcionario.Id);
                     //conexao.Update(funcionario);
                     return true;
                 }
@@ -221,7 +221,7 @@ namespace App.Crud_Xamarin.Resources.DataBaseHelper
         }
 
         // Associando Funcionario na empresa e vice e versa
-        public bool InserirMatch(Match match)
+       /* public bool InserirMatch(Match match)
         {
             try
             {
@@ -236,7 +236,7 @@ namespace App.Crud_Xamarin.Resources.DataBaseHelper
                 Log.Info("SQLiteEx", ex.Message);
                 return false;
             }
-        }
+        }*/
 
     }
 }

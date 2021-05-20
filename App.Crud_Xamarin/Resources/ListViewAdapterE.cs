@@ -32,7 +32,7 @@ namespace App.Crud_Xamarin.Resources
 
         public override View GetView(int position, View convertView, ViewGroup parent)
         {
-            var view = convertView ?? context.LayoutInflater.Inflate(Resource.Layout.ListViewLayoutE, parent, false);
+            var view = convertView ?? context.LayoutInflater.Inflate(Resource.Layout.ListViewEmpresa, parent, false);
 
             var lvtxtNomeE = view.FindViewById<TextView>(Resource.Id.txtvNomeE);
             var lvtxtCnpj = view.FindViewById<TextView>(Resource.Id.txtvCnpj);
@@ -42,7 +42,7 @@ namespace App.Crud_Xamarin.Resources
             lvtxtNomeE.Text = "Empresa: " + empresas[position].Nome;
             lvtxtCnpj.Text = "CNPJ: " + empresas[position].Cnpj;
             lvtxtEnderecoE.Text = "Endereco: " + empresas[position].Endereco;
-            //lvtxtFun.Text = "Funcionario: " + empresas[position].FuncionarioEmpresa;
+            lvtxtFun.Text = "Funcionario: " + empresas[position].FuncionarioEmpresa;
 
             return view;
 
