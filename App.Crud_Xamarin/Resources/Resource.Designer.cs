@@ -147,16 +147,19 @@ namespace App.Crud_Xamarin
 			public const int txtvEmail = 2130837532;
 			
 			// aapt resource value: 0x7F02001D
-			public const int txtvEndereco = 2130837533;
+			public const int txtvEmp = 2130837533;
 			
 			// aapt resource value: 0x7F02001E
-			public const int txtvEnderecoE = 2130837534;
+			public const int txtvEndereco = 2130837534;
 			
 			// aapt resource value: 0x7F02001F
-			public const int txtvNome = 2130837535;
+			public const int txtvEnderecoE = 2130837535;
 			
 			// aapt resource value: 0x7F020020
-			public const int txtvNomeE = 2130837536;
+			public const int txtvNome = 2130837536;
+			
+			// aapt resource value: 0x7F020021
+			public const int txtvNomeE = 2130837537;
 			
 			static Id()
 			{

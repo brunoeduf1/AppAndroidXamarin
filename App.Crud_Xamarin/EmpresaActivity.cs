@@ -47,6 +47,7 @@ namespace App.Crud_Xamarin
                     Nome = txtNomeE.Text,
                     Cnpj = txtCnpj.Text,
                     Endereco = txtEnderecoE.Text,
+                    FuncionarioEmpresa = "",
 
                 };
                 db.InserirEmpresa(empresa);
@@ -62,6 +63,7 @@ namespace App.Crud_Xamarin
                     Nome = txtNomeE.Text,
                     Cnpj = txtCnpj.Text,
                     Endereco = txtEnderecoE.Text,
+                    FuncionarioEmpresa = "",
                 };
                 db.AtualizarEmpresa(empresa);
                 CarregarDados();
@@ -76,6 +78,7 @@ namespace App.Crud_Xamarin
                     Nome = txtNomeE.Text,
                     Cnpj = txtCnpj.Text,
                     Endereco = txtEnderecoE.Text,
+                    FuncionarioEmpresa = "",
                 };
                 db.DeletarEmpresa(empresa);
                 CarregarDados();
@@ -119,13 +122,12 @@ namespace App.Crud_Xamarin
                 var lvtxtNomeE = e.View.FindViewById<TextView>(Resource.Id.txtvNomeE);
                 var lvtxtCnpj = e.View.FindViewById<TextView>(Resource.Id.txtvCnpj);
                 var lvtxtEnderecoE = e.View.FindViewById<TextView>(Resource.Id.txtvEnderecoE);
-                
+               
 
                 txtNomeE.Text = lvtxtNomeE.Text;
                 txtNomeE.Tag = e.Id;
                 txtCnpj.Text = lvtxtCnpj.Text;
                 txtEnderecoE.Text = lvtxtEnderecoE.Text;
-
             };
 
         }
@@ -139,7 +141,7 @@ namespace App.Crud_Xamarin
         private void CarregarDados()
         {
             listaEmpresas = db.GetEmpresas();
-            var adapter = new ListViewAdapterE(this, listaEmpresas);
+            var adapter = new ListViewAdapterEmpresa(this, listaEmpresas);
             lvDadosE.Adapter = adapter;
         }
     }

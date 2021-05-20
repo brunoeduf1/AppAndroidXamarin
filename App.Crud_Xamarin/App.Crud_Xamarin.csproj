@@ -97,11 +97,11 @@
     <Compile Include="EmpresaActivity.cs" />
     <Compile Include="FuncionarioActivity.cs" />
     <Compile Include="MainActivity.cs" />
-    <Compile Include="Resources\ListViewAdapterChkBx .cs" />
-    <Compile Include="Resources\ListViewAdapterEChkBx.cs" />
-    <Compile Include="Resources\ListViewAdapterE.cs" />
+    <Compile Include="Resources\ListViewAdapterFuncionarioChkBx.cs" />
+    <Compile Include="Resources\ListViewAdapterEmpresaChkBx.cs" />
+    <Compile Include="Resources\ListViewAdapterEmpresa.cs" />
     <Compile Include="Resources\DataBaseHelper\DataBase.cs" />
-    <Compile Include="Resources\ListViewAdapter.cs" />
+    <Compile Include="Resources\ListViewAdapterFuncionario.cs" />
     <Compile Include="Resources\Model\Empresa.cs" />
     <Compile Include="Resources\Model\Funcionario.cs" />
     <Compile Include="Resources\Model\Match.cs" />

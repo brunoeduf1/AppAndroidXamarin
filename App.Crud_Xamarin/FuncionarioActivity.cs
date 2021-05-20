@@ -49,6 +49,7 @@ namespace App.Crud_Xamarin
                     Cpf = txtCpf.Text,
                     Email = txtEmail.Text,
                     Endereco = txtEndereco.Text,
+                    EmpresaFuncionario = "",
 
                 };
                 db.InserirFuncionario(funcionario);
@@ -65,6 +66,7 @@ namespace App.Crud_Xamarin
                     Cpf = txtCpf.Text,
                     Email = txtEmail.Text,
                     Endereco = txtEndereco.Text,
+                    EmpresaFuncionario = "",
                 };
                 db.AtualizarFuncionario(funcionario);
                 CarregarDados();
@@ -80,6 +82,7 @@ namespace App.Crud_Xamarin
                     Cpf = txtCpf.Text,
                     Email = txtEmail.Text,
                     Endereco = txtEndereco.Text,
+                    EmpresaFuncionario = "",
                 };
                 db.DeletarFuncionario(funcionario);
                 CarregarDados();
@@ -132,7 +135,6 @@ namespace App.Crud_Xamarin
                 txtCpf.Text = lvtxtCpf.Text;
                 txtEmail.Text = lvtxtEmail.Text;
                 txtEndereco.Text = lvtxtEndereco.Text;
-
             };
 
         }
@@ -146,7 +148,7 @@ namespace App.Crud_Xamarin
         private void CarregarDados()
         {
             listaFuncionarios = db.GetFuncionarios();
-            var adapter = new ListViewAdapter(this, listaFuncionarios);
+            var adapter = new ListViewAdapterFuncionario(this, listaFuncionarios);
             lvDados.Adapter = adapter;
         }
     }

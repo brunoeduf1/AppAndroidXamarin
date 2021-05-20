@@ -6,12 +6,12 @@ using System.Collections.Generic;
 
 namespace App.Crud_Xamarin.Resources
 {
-    public class ListViewAdapterE : BaseAdapter
+    public class ListViewAdapterEmpresa : BaseAdapter
     {
         private readonly Activity context;
         private readonly List<Empresa> empresas;
 
-        public ListViewAdapterE(Activity _context, List<Empresa> _empresas)
+        public ListViewAdapterEmpresa(Activity _context, List<Empresa> _empresas)
         {
             this.context = _context;
             this.empresas = _empresas;

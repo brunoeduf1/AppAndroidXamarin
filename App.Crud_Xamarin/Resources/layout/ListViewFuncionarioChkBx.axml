@@ -36,4 +36,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingLeft="5dp" />
+    <TextView
+        android:id="@+id/txtvEmp"
+        android:text="Empresa"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="5dp" />
 </LinearLayout>

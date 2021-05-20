@@ -7,28 +7,28 @@ using System;
 
 namespace App.Crud_Xamarin.Resources
 {
-    public class ListViewAdapterChkBx : BaseAdapter
+    public class ListViewAdapterEmpresaChkBx : BaseAdapter
     {
         private readonly Activity context;
-        private readonly List<Funcionario> funcionarios;
+        private readonly List<Empresa> empresas;
 
-        public ListViewAdapterChkBx(Activity _context, List<Funcionario> _empresas)
+        public ListViewAdapterEmpresaChkBx(Activity _context, List<Empresa> _empresas)
         {
             this.context = _context;
-            this.funcionarios = _empresas;
+            this.empresas = _empresas;
         }
 
         public override int Count
         {
             get
             {
-                return funcionarios.Count;
+                return empresas.Count;
             }
         }
 
         public override long GetItemId(int position)
         {
-            return funcionarios[position].Id;
+            return empresas[position].Id;
         }
 
         public override View GetView(int position, View convertView, ViewGroup parent)
@@ -44,34 +44,34 @@ namespace App.Crud_Xamarin.Resources
             else
             {
                 holder = new MyViewHolder();
-                view = this.context.LayoutInflater.Inflate(Resource.Layout.ListViewFuncionarioChkBx, null);
+                view = this.context.LayoutInflater.Inflate(Resource.Layout.ListViewEmpresaChkBx, null);
 
-                holder.mCheckBox = view.FindViewById<CheckBox>(Resource.Id.checkBoxFun);
+                holder.mCheckBox = view.FindViewById<CheckBox>(Resource.Id.checkBoxEmp);
                 holder.mCheckBox.Tag = position;
 
                 view.Tag = holder;
             }
 
-            var lvtxtNome = view.FindViewById<TextView>(Resource.Id.txtvNome);
-            var lvtxtCpf = view.FindViewById<TextView>(Resource.Id.txtvCpf);
-            var lvtxtEmail = view.FindViewById<TextView>(Resource.Id.txtvEmail);
-            var lvtxtEndereco = view.FindViewById<TextView>(Resource.Id.txtvEndereco);
+            var lvtxtNomeE = view.FindViewById<TextView>(Resource.Id.txtvNomeE);
+            var lvtxtCnpj = view.FindViewById<TextView>(Resource.Id.txtvCnpj);
+            var lvtxtEnderecoE = view.FindViewById<TextView>(Resource.Id.txtvEnderecoE);
+            var lvtxtFun = view.FindViewById<TextView>(Resource.Id.textvFun);
+          
+            lvtxtNomeE.Text = "Empresa: " + empresas[position].Nome;
+            lvtxtCnpj.Text = "CNPJ: " + empresas[position].Cnpj;
+            lvtxtEnderecoE.Text = "Endereco: " + empresas[position].Endereco;
+            lvtxtFun.Text = "Funcionario: " + empresas[position].FuncionarioEmpresa;
 
-            lvtxtNome.Text = "Funcionario: " + funcionarios[position].Nome;
-            lvtxtCpf.Text = "CPF: " + funcionarios[position].Cpf;
-            lvtxtEmail.Text = "E-mail:" + funcionarios[position].Email;
-            lvtxtEndereco.Text = "Endereco: " + funcionarios[position].Endereco;
+            CheckBox checkBoxEmp = view.FindViewById<CheckBox>(Resource.Id.checkBoxEmp);
 
-            CheckBox checkBoxFun = view.FindViewById<CheckBox>(Resource.Id.checkBoxFun);
-
-            Funcionario funcionario = this.funcionarios[position];
+            Empresa empresa = this.empresas[position];
 
             holder.mCheckBox.Tag = position;
-            holder.mCheckBox.Checked = funcionarios[position].Checkado;
+            holder.mCheckBox.Checked = empresas[position].Checkado;
            
             holder.mCheckBox.SetOnCheckedChangeListener(null);
-            holder.mCheckBox.Checked = funcionario.Checkado;
-            holder.mCheckBox.SetOnCheckedChangeListener(new CheckedChangeListener(this.context, funcionarios));
+            holder.mCheckBox.Checked = empresa.Checkado;
+            holder.mCheckBox.SetOnCheckedChangeListener(new CheckedChangeListener(this.context, empresas));
 
             return view;
         }
@@ -84,9 +84,9 @@ namespace App.Crud_Xamarin.Resources
         private class CheckedChangeListener : Java.Lang.Object, CompoundButton.IOnCheckedChangeListener
         {
             private Activity activity;
-            private List<Funcionario> list;
+            private List<Empresa> list;
 
-            public CheckedChangeListener(Activity activity, List<Funcionario> datalist)
+            public CheckedChangeListener(Activity activity, List<Empresa> datalist)
             {
                 this.activity = activity;
                 this.list = datalist;
@@ -99,7 +99,7 @@ namespace App.Crud_Xamarin.Resources
                 if (isChecked)
                 {
                     string strMyObject = buttonView.Tag.ToString();
-                    //System.Diagnostics.Debug.WriteLine("Conteudo do Tag = " + strMyObject);
+                    System.Diagnostics.Debug.WriteLine("Conteudo do Tag = " + strMyObject);
 
                     try
                     {
@@ -110,7 +110,7 @@ namespace App.Crud_Xamarin.Resources
                         Console.WriteLine($"Unable to parse");
                     }
 
-                    Funcionario item = list[position];
+                    Empresa item = list[position];
                     item.Checkado = true;
                     list[position].Checkado = true;
 
@@ -138,7 +138,7 @@ namespace App.Crud_Xamarin.Resources
 
         private void MBtn_Click(object sender, System.EventArgs e)
         {
-            foreach (Funcionario model in funcionarios)
+            foreach (Empresa model in empresas)
             {
                 if (model.Checkado)
                 {

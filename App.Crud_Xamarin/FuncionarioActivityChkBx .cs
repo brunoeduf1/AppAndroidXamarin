@@ -88,7 +88,7 @@ namespace App.Crud_Xamarin
             btnConfirmar.Click += delegate
             {
                 string selecionado = Selecionado();
-                //System.Diagnostics.Debug.WriteLine("Conteudo do selecionado = " + selecionado);
+                System.Diagnostics.Debug.WriteLine("Conteudo do selecionado = " + selecionado);
 
                 int[] checkado = new int[20];
 
@@ -145,7 +145,7 @@ namespace App.Crud_Xamarin
         private void CarregarDados()
         {
             listaFuncionarios = db.GetFuncionarios();
-            var adapter = new ListViewAdapterChkBx(this, listaFuncionarios);
+            var adapter = new ListViewAdapterFuncionarioChkBx(this, listaFuncionarios);
             lvDadosChkBx.Adapter = adapter;
         }
 

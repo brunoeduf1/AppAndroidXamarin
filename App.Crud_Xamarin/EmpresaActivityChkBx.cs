@@ -141,7 +141,7 @@ namespace App.Crud_Xamarin
         private void CarregarDados()
         {
             listaEmpresas = db.GetEmpresas();
-            var adapter = new ListViewAdapterEChkBx(this, listaEmpresas);
+            var adapter = new ListViewAdapterEmpresaChkBx(this, listaEmpresas);
             lvDadosEChkBx.Adapter = adapter;
         }
 
