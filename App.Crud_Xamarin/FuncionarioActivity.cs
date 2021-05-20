@@ -85,7 +85,7 @@ namespace App.Crud_Xamarin
                 CarregarDados();
             };
 
-            //botão Cadastrar Empresa
+            //botão Associar Empresa
             btnAssEmpresa.Click += delegate 
             {
                 int posicao = 0;

@@ -87,7 +87,7 @@ namespace App.Crud_Xamarin
             //Botao confirmar
             btnConfirmar.Click += delegate
             {
-                /*string selecionado = Selecionado();
+                string selecionado = Selecionado();
                 //System.Diagnostics.Debug.WriteLine("Conteudo do selecionado = " + selecionado);
 
                 int[] checkado = new int[20];
@@ -119,12 +119,12 @@ namespace App.Crud_Xamarin
 
                         listaFuncionarios[i].Checkado = false;
                     }
-                }*/
+                }
             };
 
             btnRetornar.Click += delegate
             {
-                StartActivity(typeof(FuncionarioActivity));
+                StartActivity(typeof(EmpresaActivity));
             };
 
         }

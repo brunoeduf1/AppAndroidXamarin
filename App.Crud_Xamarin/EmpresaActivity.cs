@@ -1,4 +1,5 @@
 ﻿using Android.App;
+using Android.Content;
 using Android.OS;
 using Android.Widget;
 using App.Crud_Xamarin.Resources;
@@ -83,7 +84,21 @@ namespace App.Crud_Xamarin
             //Associar Funcionario
             btnAssFuncionario.Click += delegate
             {
-                StartActivity(typeof(FuncionarioActivityChkBx));
+                int posicao = 0;
+
+                for (int i = 0; i < lvDadosE.Count; i++)
+                {
+                    if (listaEmpresas[i].Selecionado)
+                    {
+                        posicao = i;
+
+                        Intent funcionarioActivity = new Intent(this, typeof(FuncionarioActivityChkBx));
+                        funcionarioActivity.PutExtra("nome2", listaEmpresas[posicao].Nome.ToString());
+                        StartActivity(funcionarioActivity);
+
+                        listaEmpresas[posicao].Selecionado = false;
+                    }
+                }
             };
 
             //evento itemClick do ListView
@@ -92,7 +107,10 @@ namespace App.Crud_Xamarin
                 for (int i = 0; i < lvDadosE.Count; i++)
                 {
                     if (e.Position == i)
+                    {
                         lvDadosE.GetChildAt(i).SetBackgroundColor(Android.Graphics.Color.MediumBlue);
+                        listaEmpresas[i].Selecionado = true;
+                    }
                     else
                         lvDadosE.GetChildAt(i).SetBackgroundColor(Android.Graphics.Color.Transparent);
                 }
