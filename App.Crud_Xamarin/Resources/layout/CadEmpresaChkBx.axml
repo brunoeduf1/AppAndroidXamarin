@@ -36,6 +36,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/btnConfirmar" />
+    <Button
+        android:text="Retornar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnRetornar" />
     <ListView
         android:minWidth="25px"
         android:minHeight="25px"

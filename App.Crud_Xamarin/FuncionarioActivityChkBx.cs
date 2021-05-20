@@ -10,7 +10,7 @@ using System.Collections.Generic;
 namespace App.Crud_Xamarin
 {
     [Activity(Label = "Cadastro de Funcionários")]
-    public class FuncionarioActivity : Activity
+    public class FuncionarioActivityChkBx : Activity
     {
         ListView lvDados;
         List<Funcionario> listaFuncionarios = new List<Funcionario>();
@@ -31,6 +31,7 @@ namespace App.Crud_Xamarin
             var txtCpf = FindViewById<EditText>(Resource.Id.txtCpf);
             var txtEmail = FindViewById<EditText>(Resource.Id.txtEmail);
             var txtEndereco = FindViewById<EditText>(Resource.Id.txtEndereco);
+            
 
             var btnIncluir = FindViewById<Button>(Resource.Id.btnIncluir);
             var btnEditar = FindViewById<Button>(Resource.Id.btnEditar);
@@ -49,6 +50,7 @@ namespace App.Crud_Xamarin
                     Cpf = txtCpf.Text,
                     Email = txtEmail.Text,
                     Endereco = txtEndereco.Text,
+                    //EmpresaFuncionario = "",
 
                 };
                 db.InserirFuncionario(funcionario);
@@ -65,6 +67,7 @@ namespace App.Crud_Xamarin
                     Cpf = txtCpf.Text,
                     Email = txtEmail.Text,
                     Endereco = txtEndereco.Text,
+                    //EmpresaFuncionario = "",
                 };
                 db.AtualizarFuncionario(funcionario);
                 CarregarDados();
@@ -80,30 +83,14 @@ namespace App.Crud_Xamarin
                     Cpf = txtCpf.Text,
                     Email = txtEmail.Text,
                     Endereco = txtEndereco.Text,
+                    //EmpresaFuncionario = "",
                 };
                 db.DeletarFuncionario(funcionario);
                 CarregarDados();
             };
 
             //botão Cadastrar Empresa
-            btnAssEmpresa.Click += delegate 
-            {
-                int posicao = 0;
-
-                for (int i = 0; i < lvDados.Count; i++)
-                {
-                    if (listaFuncionarios[i].Selecionado)
-                    {
-                        posicao = i;
-                    }
-                }
-
-                Intent empresaActivity = new Intent(this, typeof(EmpresaActivityChkBx));
-                empresaActivity.PutExtra("nome", listaFuncionarios[posicao].Nome.ToString());
-                StartActivity(empresaActivity);
-
-                listaFuncionarios[posicao].Selecionado = false;
-            };
+            btnAssEmpresa.Click += BtnAssEmpresa_Click;
 
             //evento itemClick do ListView
             lvDados.ItemClick += (s, e) =>
@@ -135,6 +122,27 @@ namespace App.Crud_Xamarin
 
             };
 
+        }
+
+        public void BtnAssEmpresa_Click(object sender, System.EventArgs e)
+        {
+
+            int posicao = 0;
+
+            for (int i = 0 ; i < lvDados.Count; i++)
+            {
+                if (listaFuncionarios[i].Selecionado)
+                {
+                    posicao = i;
+                    StartActivity(typeof(EmpresaActivityChkBx));
+                }            
+            }
+
+            Intent empresaActivity = new Intent(this, typeof(EmpresaActivityChkBx));
+            empresaActivity.PutExtra("Funcionario", listaFuncionarios[posicao].Nome.ToString());
+            StartActivity(empresaActivity);
+
+            listaFuncionarios[posicao].Selecionado = false;
         }
 
         private void CriarBancoDados()

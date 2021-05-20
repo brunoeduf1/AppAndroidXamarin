@@ -81,64 +81,67 @@ namespace App.Crud_Xamarin
 			public const int btnIncluir = 2130837510;
 			
 			// aapt resource value: 0x7F020007
-			public const int checkBoxEmp = 2130837511;
+			public const int btnRetornar = 2130837511;
 			
 			// aapt resource value: 0x7F020008
-			public const int lvDados = 2130837512;
+			public const int checkBoxEmp = 2130837512;
 			
 			// aapt resource value: 0x7F020009
-			public const int lvDadosE = 2130837513;
+			public const int lvDados = 2130837513;
 			
 			// aapt resource value: 0x7F02000A
-			public const int lvDadosEChkBx = 2130837514;
+			public const int lvDadosE = 2130837514;
 			
 			// aapt resource value: 0x7F02000B
-			public const int textvEmp = 2130837515;
+			public const int lvDadosEChkBx = 2130837515;
 			
 			// aapt resource value: 0x7F02000C
-			public const int textvFun = 2130837516;
+			public const int textvEmp = 2130837516;
 			
 			// aapt resource value: 0x7F02000D
-			public const int txtCnpj = 2130837517;
+			public const int textvFun = 2130837517;
 			
 			// aapt resource value: 0x7F02000E
-			public const int txtCpf = 2130837518;
+			public const int txtCnpj = 2130837518;
 			
 			// aapt resource value: 0x7F02000F
-			public const int txtEmail = 2130837519;
+			public const int txtCpf = 2130837519;
 			
 			// aapt resource value: 0x7F020010
-			public const int txtEndereco = 2130837520;
+			public const int txtEmail = 2130837520;
 			
 			// aapt resource value: 0x7F020011
-			public const int txtEnderecoE = 2130837521;
+			public const int txtEndereco = 2130837521;
 			
 			// aapt resource value: 0x7F020012
-			public const int txtNome = 2130837522;
+			public const int txtEnderecoE = 2130837522;
 			
 			// aapt resource value: 0x7F020013
-			public const int txtNomeE = 2130837523;
+			public const int txtNome = 2130837523;
 			
 			// aapt resource value: 0x7F020014
-			public const int txtvCnpj = 2130837524;
+			public const int txtNomeE = 2130837524;
 			
 			// aapt resource value: 0x7F020015
-			public const int txtvCpf = 2130837525;
+			public const int txtvCnpj = 2130837525;
 			
 			// aapt resource value: 0x7F020016
-			public const int txtvEmail = 2130837526;
+			public const int txtvCpf = 2130837526;
 			
 			// aapt resource value: 0x7F020017
-			public const int txtvEndereco = 2130837527;
+			public const int txtvEmail = 2130837527;
 			
 			// aapt resource value: 0x7F020018
-			public const int txtvEnderecoE = 2130837528;
+			public const int txtvEndereco = 2130837528;
 			
 			// aapt resource value: 0x7F020019
-			public const int txtvNome = 2130837529;
+			public const int txtvEnderecoE = 2130837529;
 			
 			// aapt resource value: 0x7F02001A
-			public const int txtvNomeE = 2130837530;
+			public const int txtvNome = 2130837530;
+			
+			// aapt resource value: 0x7F02001B
+			public const int txtvNomeE = 2130837531;
 			
 			static Id()
 			{

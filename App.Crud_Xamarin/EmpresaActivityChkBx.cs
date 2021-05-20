@@ -1,12 +1,12 @@
 ﻿using Android.App;
+using Android.Content;
 using Android.OS;
 using Android.Widget;
 using App.Crud_Xamarin.Resources;
 using App.Crud_Xamarin.Resources.DataBaseHelper;
 using App.Crud_Xamarin.Resources.Model;
-using Android.Content;
-using System.Collections.Generic;
 using Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime.Models;
+using System.Collections.Generic;
 
 namespace App.Crud_Xamarin
 {
@@ -33,11 +33,11 @@ namespace App.Crud_Xamarin
             var txtEnderecoE = FindViewById<EditText>(Resource.Id.txtEnderecoE);
 
             var btnIncluir = FindViewById<Button>(Resource.Id.btnIncluir);
-
             var btnConfirmar = FindViewById<Button>(Resource.Id.btnConfirmar);
+            var btnRetornar = FindViewById<Button>(Resource.Id.btnRetornar);
 
             CheckBox checkBoxEmp = FindViewById<CheckBox>(Resource.Id.checkBoxEmp);
-       
+
             //carregar Dados
             CarregarDados();
 
@@ -54,7 +54,7 @@ namespace App.Crud_Xamarin
                 db.InserirEmpresa(empresa);
                 CarregarDados();
             };
-          
+
             //evento itemClick do ListView
             lvDadosEChkBx.ItemClick += (s, e) =>
             {
@@ -80,35 +80,47 @@ namespace App.Crud_Xamarin
                 txtEnderecoE.Text = lvtxtEnderecoE.Text;
 
             };
-           
+
             //Botao confirmar
             btnConfirmar.Click += delegate
             {
                 string selecionado = Selecionado();
+                System.Diagnostics.Debug.WriteLine("Conteudo do selecionado = " + selecionado);
 
-                int idEmpresa = 0;
+                int[] checkado = new int[20];
 
                 for (int i = 0; i < lvDadosEChkBx.Count; i++)
                 {
                     if (listaEmpresas[i].Checkado)
                     {
-                        idEmpresa = i;
-                        listaEmpresas[i].Checkado = false;
+                        checkado[i] = i;                      
                     }
                 }
 
-                Empresa empresa = new Empresa()
+                for (int i = 0; i < lvDadosEChkBx.Count; i++) //Corrigir -> Eliminar esse for e juntar as alterações no "for" de cima
                 {
-                    Id = listaEmpresas[idEmpresa].Id,
-                    Nome = listaEmpresas[idEmpresa].Nome,
-                    Cnpj = listaEmpresas[idEmpresa].Cnpj,
-                    Endereco = listaEmpresas[idEmpresa].Endereco,
-                    FuncionarioEmpresa = selecionado,
-                };
+                    if (checkado[i] == i)
+                    {
+                        Empresa empresa = new Empresa()
+                        {
+                            Id = listaEmpresas[checkado[i]].Id,
+                            Nome = listaEmpresas[checkado[i]].Nome,
+                            Cnpj = listaEmpresas[checkado[i]].Cnpj,
+                            Endereco = listaEmpresas[checkado[i]].Endereco,
+                            FuncionarioEmpresa = selecionado,
+                        };
 
-                db.AtualizarEmpresa(empresa);
-                CarregarDados();
+                        db.AtualizarEmpresa(empresa);
+                        CarregarDados();
 
+                        listaEmpresas[i].Checkado = false;
+                    }
+                }
+            };
+
+            btnRetornar.Click += delegate
+            {
+                StartActivity(typeof(FuncionarioActivity));
             };
 
         }
@@ -132,6 +144,6 @@ namespace App.Crud_Xamarin
             var adapter = new ListViewAdapterEChkBx(this, listaEmpresas);
             lvDadosEChkBx.Adapter = adapter;
         }
-        
+
     }
 }
