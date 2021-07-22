@@ -129,6 +129,7 @@ namespace App.Crud_Xamarin
                 var lvtxtCpf = e.View.FindViewById<TextView>(Resource.Id.txtvCpf);
                 var lvtxtEmail = e.View.FindViewById<TextView>(Resource.Id.txtvEmail);
                 var lvtxtEndereco = e.View.FindViewById<TextView>(Resource.Id.txtvEndereco);
+              
 
                 txtNome.Text = lvtxtNome.Text;
                 txtNome.Tag = e.Id;

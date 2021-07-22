@@ -56,11 +56,13 @@ namespace App.Crud_Xamarin.Resources
             var lvtxtCpf = view.FindViewById<TextView>(Resource.Id.txtvCpf);
             var lvtxtEmail = view.FindViewById<TextView>(Resource.Id.txtvEmail);
             var lvtxtEndereco = view.FindViewById<TextView>(Resource.Id.txtvEndereco);
+            var lvtxtvEmp = view.FindViewById<TextView>(Resource.Id.txtvEmp);
 
             lvtxtNome.Text = "Funcionario: " + funcionarios[position].Nome;
             lvtxtCpf.Text = "CPF: " + funcionarios[position].Cpf;
             lvtxtEmail.Text = "E-mail:" + funcionarios[position].Email;
             lvtxtEndereco.Text = "Endereco: " + funcionarios[position].Endereco;
+            lvtxtvEmp.Text = "Empresa: " + funcionarios[position].EmpresaFuncionario;
 
             CheckBox checkBoxFun = view.FindViewById<CheckBox>(Resource.Id.checkBoxFun);
 
